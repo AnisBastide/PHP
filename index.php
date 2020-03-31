@@ -140,6 +140,12 @@
 					
 				</article>
 			</section>
+            <?php
+            require "US3.php";
+            $primeNumber= new primeNumber();
+            $primeNumber->generatePrimeNumbers(45);
+            ?>
+
 
 			<footer>
 				<div id="groupe">
