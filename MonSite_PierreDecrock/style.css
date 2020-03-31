@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'ambleregular';
+    src: url('fonts/Amble-Regular-webfont.eot');
+    src: url('fonts/Amble-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Amble-Regular-webfont.woff2') format('woff2'),
+         url('fonts/Amble-Regular-webfont.woff') format('woff'),
+         url('fonts/Amble-Regular-webfont.ttf') format('truetype'),
+         url('fonts/Amble-Regular-webfont.svg#ambleregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body
+{
+	background-color: #A5E39E;
+	font-family: 'ambleregular', Arial, sans-serif;
+}
+
+#bloc
+{
+	width: 900px;
+	margin: auto;
+}
+
+@media all and (max-width: 1024px)
+{
+	#bloc
+	{
+		width: auto;
+	}
+	/*nav
+	{
+		width: auto;
+		text-align: left;
+	}*/
+	/*nav ul
+	{
+		flex-direction: column;
+	}*/
+	nav li
+	{
+		padding-left: 4px;
+	}
+	nav a 
+	{
+		font-size: 3px;
+	}
+	nav a:hover
+	{
+		border-bottom: 0;
+	}
+	#couverture
+	{
+		display: none;
+	}
+	section
+	{
+		flex-direction: column;
+	}
+
+}
+
+section h1, footer h1, nav a 
+{
+	font-family: 'ambleregular', serif;
+	font-weight: normal;
+	text-transform: uppercase;
+}
+
+/*-------------------Header-------------------*/
+
+header
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+/*#titre_principal
+{
+	display: flex;
+	flex-direction: column;
+}*/
+
+header h1
+{
+	font-size: 10em
+	font-weight: normal;
+}
+header nav {
+	margin-bottom: 10px;
+}
+
+nav ul
+{
+	list-style-type: none;
+	display: flex;
+}
+
+nav li
+{
+	margin-right: 20px
+}
+
+nav a 
+{
+	font-size: 1.4em;
+	color: grey;
+	padding-bottom: 2px;
+	text-decoration: none;
+}
+
+nav a:hover
+{
+	color: gold;
+	border-bottom: 3px solid #760001;
+}
+
+/*-------------------Body-------------------*/
+
+#couverture
+{
+	margin-top: 15px;
+	height: 200px;
+	border-radius: 5px;
+	background: url('Fotolia_81160853_Subscription_Monthly_M.jpg') no-repeat;
+	position: relative;
+	box-shadow: 0px 4px 4px #1C1A19;
+	margin-bottom: 25px;
+}
+
+section
+{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+article, aside
+{
+    text-align: justify;
+}
+
+article
+{
+    margin-right: 20px;
+    flex: 3;
+}
+
+
+article p
+{
+    font-size: 0.8em;
+}
+
+aside
+{
+    flex: 1.2;
+    position: relative;
+    background-color: #CDFBB3;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.9em;
+}
+
+#photo_de_Pierre
+{
+	text-align: center;
+}
+#photo_de_Pierre img
+{
+	border: 1px solid #181818;
+}
+
+
+
+/*-------------------Footer-------------------*/
+
+
+footer 
+{
+	display: flex;
+	padding-top: 25px;
+}
+
+footer p, footer ul
+{
+	font-size: 0.8em;
+}
+
+footer h1
+{
+	font-size: 1.3em;
+}
+
+#groupe
+{
+	width: 30%
+}
+
+#rien
+{
+	width: 40%
+}
+
+#Contact
+{
+	
+	width: 30%
+}
+
+
