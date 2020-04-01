@@ -144,7 +144,11 @@ section
     display: flex;
     margin-bottom: 20px;
 }
-
+#stories {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
 article, aside
 {
     text-align: justify;
