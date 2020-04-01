@@ -108,7 +108,7 @@
 								?>
 								
 							</form>
-							
+							<form method="post">
 							<?php
 
 								if (!empty($_POST)) {
@@ -116,8 +116,17 @@
 									//$length, $life, $damage, $name, $gender, $nbrArms, $sizeArms
 									$toto = new tyrex("",$_POST["life"],"",$_POST["name"],$_POST["gender"],"","");
 								}
-								
+                            $form->getInputText("firstNumber", "firstNumber");
+                            $form->getInputText("secondNumber", "secondNumber");
+                            $form->getInputText("thirdNumber","thirdNumber");
+                            $form->getInputSubmit("valider");
+								require "Utility.php";
+								$smallestNumber=new Utility();
+                            if (!empty($_POST)) {
+                                $smallestNumber->getSmallestNumber($_POST["firstNumber"],$_POST["secondNumber"],$_POST["thirdNumber"]);
+                            }
 							?>
+                            </form>
 						</p>
 					</div>
 					<div id="bdd">
