@@ -2,31 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="MonSite_PierreDecrock/style.css"/>
+		<link rel="stylesheet" href="portions/style.css"/>
 		<title>PHP</title>
 	</head>
 	<body>
-		<div id="bloc">
-			<header>
-				<div id="titre_principal">
-					<div id="logo">
-						<h1>Groupe 5</h1>
-					</div>
-				</div>
-				<nav>
-					<ul>
-						<li><a href="#exos">Exos</a></li>
-						<li><a href="#algo">Algo</a></li>
-						<li><a href="#bdd">BDD</a></li>
-						<li><a href="#laposte">LaPoste</a></li>
-					</ul>
-				</nav>
-			</header>
-
-			<div id="couverture">
-				<div id="description_couverture">
-				</div>
-			</div>
+			<?php include ("portions/header.php"); ?>
 
 			<section>
 				<article>
@@ -140,34 +120,6 @@
 					
 				</article>
 			</section>
-
-			<footer>
-				<div id="groupe">
-					<h1>Mon groupe</h1>
-					<ul>
-						<li>Anis Bastide</li>
-						<li>Jimmy Lai</li>
-						<li>Dorian Lebourgeois</li>
-						<li>Pierre Decrock</li>
-					</ul>
-					
-				</div>
-				<div id="rien">
-					<p>
-						
-					</p>
-					
-				</div>
-				<div id="Contact">
-					<h1>Me contacter</h1>
-					<ul>
-						<li>Téléphone : 06.12.34.56.78</li>
-						<li>Mail : pierre.decrock@gmail.com</li>
-					</ul>
-					
-				</div>
-
-			</footer>
-		</div>
+			<?php include ("portions/footer.php"); ?>
 	</body>		
 </html>
