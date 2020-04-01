@@ -23,6 +23,20 @@
         }
         ?>
     </form>
+    <form method="POST" action="#">
+        <?php
+        ini_set('display_errors', 1);
+        require "../US6.php";
+        $number = new US6();
+        $form->getInputText("Nombre","roman");
+        $form->getInputSubmit("Valider");
+        ?>
+        <?php
+        if (!empty($_POST)){
+            $number->romanNumber($_POST["roman"]);
+        }
+        ?>
+    </form>
 
 
 

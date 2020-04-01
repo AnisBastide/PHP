@@ -12,3 +12,4 @@ class US4
         echo "<div><p>L'événement à eu lieu le ".$finalDate.".</p></div>";
     }
 }
+?>
