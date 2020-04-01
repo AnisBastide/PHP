@@ -2,24 +2,32 @@
 class primeNumber{
     public function generatePrimeNumbers($number){
         $list=array();
-        for($i=0;$i<=$number;$i++){
+        for($i=1;$i<=$number;$i++){
             $divide=false;
             $j=1;
-            while($divide=false){
-                if($i%$j==0 && $j!=$i){
-                    $divide==true;
+            while($divide==false){
+                if($i%$j==0 && $j!=$i && $j!=1){
+                    $divide=true;
                 }
-                if($j==$i){
-                    array_push($list,$j);
+                else if($j==$i){
+                    $list[]=$j;
+                    $divide=true;
                 }
+                $j++;
          }
-         echo '<div';
-         foreach($list as $number){
-             echo $number . ",";
-         }
-         echo '/>';
         }
-
+        echo '<p>';
+        $text="";
+        $count=0;
+        foreach($list as $number){
+            $text=$text . $number;
+            if($count<count($list)-1){
+                $text=$text . ',';
+            }
+            $count++;
+        }
+        echo $text;
+        echo '</p>';
     }
 }
 ?>
