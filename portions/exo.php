@@ -10,7 +10,7 @@
 	require "../dinosaure.php";
 	require "../autoform.php";
 	require "../request.php";
-	require "../facto.php";
+	require "../calcul.php";
 
 	?>
 
@@ -29,11 +29,23 @@
 
 				$form->getInputText("Nombre à calculer", "number");
 				if (!empty($_POST)) {
-					$fac = new factorielle;
+					$fac = new calcul;
 					$fac->facto($_POST["number"]);
 				}
 
 				$form->getInputSubmit("Valider");
+				
+			?>
+			<?php
+				$form2 = new autoform;
+
+				$form2->getInputText("Nombre à transformer en binaire", "binary");
+				if (!empty($_POST)) {
+					$bin = new calcul;
+					$bin->binary($_POST["binary"]);
+				}
+
+				$form2->getInputSubmit("Valider");
 				
 			?>
 		</form>
