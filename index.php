@@ -17,10 +17,6 @@
 					<div>
 						<h2>Stories à faire</h2>
 						<ul>
-							<li>US1</li>
-							<li>US2</li>
-							<li>US3</li>
-							<li>US4</li>
 							<li>US5</li>
 							<li>US6</li>
 							<li>US7</li>
@@ -53,6 +49,7 @@
 							require "dinosaure.php";
 							require "autoform.php";
 							require "request.php";
+							require "facto.php";
 							/*$dino = new tyrex("555", "40", 4, "Méga Tyrex","m", "1", 4);
 							$trex = new tyrex("333", "30", 3, "Mini Tyrex","m", "2", 2);
 
@@ -123,10 +120,9 @@
 								//$length, $life, $damage, $name, $gender, $nbrArms, $sizeArms
 								$toto = new tyrex("",$_POST["life"],"",$_POST["name"],$_POST["gender"],"","");
 							}
-							$dbh = new request('root','root','php', 'mysql','localhost');
-							//$dbh->insert('dinosaure', "'jean-Mich'", "'tyrex faible'", "'20'");
-							$dbh->getInsert("dinosaure",array("NULL","'Jean-Mi'","'Dodo'","'20'"));
-							$dbh->getAllRows("dinosaure","*");
+							// $dbh = new request('root','root','php', 'mysql','localhost');
+							// $dbh->getInsert("dinosaure",array("NULL","'Jean-Mi'","'Dodo'","'20'"));
+							// $dbh->getAllRows("dinosaure","*");
 							
 						?>
 					</p>

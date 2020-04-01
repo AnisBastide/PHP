@@ -6,10 +6,10 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="portions/exo.php">Exos</a></li>
-			<li><a href="portions/algo.php">Algo</a></li>
-			<li><a href="portions/bdd.php">BDD</a></li>
-			<li><a href="portions/laposte.php">LaPoste</a></li>
+			<li><a href="/ProjetPHP/portions/exo.php">Exos</a></li>
+			<li><a href="/ProjetPHP/portions/algo.php">Algo</a></li>
+			<li><a href="/ProjetPHP/portions/bdd.php">BDD</a></li>
+			<li><a href="/ProjetPHP/portions/laposte.php">LaPoste</a></li>
 		</ul>
 	</nav>
 </header>
