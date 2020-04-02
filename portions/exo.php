@@ -117,17 +117,18 @@ require "../hexadecimal(US8).php";
         ?>
     </form>
     <h3>US 9</h3>
-    <form>
+    <form method="post">
         <?php
         $form2 = new autoform;
 
         $form2->getInputText("Nombre à transformer en binaire", "binary");
+        $form2->getInputSubmit("Valider");
+
         if (!empty($_POST)) {
             $bin = new binary();
             $bin->binaryConverter($_POST["binary"]);
         }
 
-        $form2->getInputSubmit("Valider");
 
         ?>
     </form>
