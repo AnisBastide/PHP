@@ -71,40 +71,6 @@ if (!empty($_POST)) {
         }
         ?>
     </form>
-    <form method="POST" action="#">
-        <?php
-        /**
-         * Enregistre dans la base de données les informations des input.
-         */
-        /*US12*/
-        ini_set('display_errors', 1);
-        $connect = new request("root", "root", "php", "mysql", "localhost");
-        $form->getInputText("Nom", "lastname");
-        $form->getInputText("Prenom", "firstname");
-        $form->getInputDate("Date de naissance", "date");
-        $form->getInputRadio("Sexe", "gender", array("H", "F"));
-        $form->getInputText("Mail", "mail");
-        $form->getInputText("Adresse", "address");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)) {
-            if (preg_match("/[aA0-zZ9]{3}\@[aA0-zZ9]{1,}\.[aA-zZ]/", $_POST["mail"])) {
-                $connect->getInsert("contact", array("'" . $_POST["lastname"] . "'", "'" . $_POST["firstname"] . "'", "'" . $_POST["date"] . "'", "'" . $_POST["gender"] . "'", "'" . $_POST["mail"] . "'", "'" . $_POST["address"] . "'"));
-            } else {
-                echo "Invalid email";
-            }
-        }
-        ?>
-    </form>
-    <form method="POST">
-        <?php
-        ini_set('display_errors', 1);
-        $display = new displayContact();
-        $rslt = $connect->getRows("contact", array("lastname", "firstname", "date", "gender", "mail", "address"), "", "");
-        $display->display($rslt);
-        ?>
-    </form>
 
     <input type="date" id="name" name="name" value="17-03-1995">
     <div id="exos">
