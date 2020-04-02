@@ -58,12 +58,6 @@ class autoform
         echo '<input type="password" id="' . $name . '" name="' . $name . '" minlength="8" required></p>';
     }
 
-    public function getInputDate($label, $name)
-    {
-        echo '<p><label for="' . $name . '">' . $label . ' : </label> ';
-        echo '<input type="date" id="' . $name . '" name="' . $name . '" min="2018-01-01" max="2018-12-31"></p>';
-    }
-
     public function getInputTextArea($label, $name)
     {
         echo '<p><label for="' . $name . '">' . $label . ' : </label></p>';
