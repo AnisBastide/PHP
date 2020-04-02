@@ -5,10 +5,8 @@
 	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-	<?php include ("header.php"); ?>
-
-    <form method="POST" action="#">
-        <?php
+	<?php 
+        include ("header.php");
         ini_set('display_errors', 1);
         require "../autoform.php";
         require "../date(US4).php";
@@ -17,65 +15,34 @@
         require "../factorial(US7).php";
         require "../smallestNumber(US5).php";
         require "../primeNumber(US3).php";
-        $form = new autoform();
-        $date = new date();
-        $form->getInputText("Seconde", "second");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)){
-            $date->countSecond($_POST["second"]);
-        }
-        ?>
-    </form>
-    <form method="POST" action="#">
-        <?php
-        ini_set('display_errors', 1);
-        $number = new RomanNumber();
-        $form->getInputText("Nombre","roman");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)){
-            $number->translateRomanNumber($_POST["roman"]);
-        }
-        ?>
-    </form>
-	<div id="exos">
-		<h1>
-			Exos
-		</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
-		<p>
-		<form method="POST" action="#">
-			<?php
-				$form = new autoform;
+    ?>
 
-				$form->getInputText("Nombre à calculer", "number");
-				if (!empty($_POST)) {
-					$fac = new factorial;
-					$fac->factor($_POST["number"]);
-				}
+    <div id="exos">
+        <h1>
+            Exos
+        </h1>
+        <p>
+        <form method="POST" action="#">
+            <?php
+                $form = new autoform;
 
-				$form->getInputSubmit("Valider");
-				
-			?>
-			<?php
-				$form2 = new autoform;
+                $form->getInputText("Nombre à calculer", "number");
+                if (!empty($_POST['number'])) {
+                    $fac = new factorial;
+                    $fac->factor($_POST["number"]);
+                }
 
-				$form2->getInputText("Nombre à transformer en binaire", "binary");
-				if (!empty($_POST)) {
-					$bin = new binary() ;
-					$bin->binaryConverter($_POST["binary"]);
-				}
+                $form->getInputText("Nombre à transformer en binaire", "binary");
+                if (!empty($_POST['binary'])) {
+                    $bin = new binary() ;
+                    $bin->binaryConverter($_POST["binary"]);
+                }
 
-				$form2->getInputSubmit("Valider");
-				
-			?>
-		</form>
-		</p>
+                $form->getInputSubmit("Valider");
+                
+            ?>
+        </form>
+        </p>
         <form method="post">
             <?php
 
@@ -103,7 +70,35 @@
             }
             ?>
         </form>
-	</div>
+    </div>
+
+    <form method="POST" action="#">
+        <?php
+        $form = new autoform();
+        $date = new date();
+        $form->getInputText("Seconde", "second");
+        $form->getInputSubmit("Valider");
+        ?>
+        <?php
+        if (!empty($_POST)){
+            $date->countSecond($_POST["second"]);
+        }
+        ?>
+    </form>
+    <form method="POST" action="#">
+        <?php
+        ini_set('display_errors', 1);
+        $number = new RomanNumber();
+        $form->getInputText("Nombre","roman");
+        $form->getInputSubmit("Valider");
+        ?>
+        <?php
+        if (!empty($_POST)){
+            $number->translateRomanNumber($_POST["roman"]);
+        }
+        ?>
+    </form>
+	
 
 
 

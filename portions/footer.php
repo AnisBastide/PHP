@@ -16,10 +16,10 @@
 		
 	</div>
 	<div id="Contact">
-		<h1>Me contacter</h1>
+		<h1>Nous contacter</h1>
 		<ul>
 			<li>Téléphone : 06.12.34.56.78</li>
-			<li>Mail : pierre.decrock@gmail.com</li>
+			<li>Mail : groupe5@codingfactory.fr</li>
 		</ul>
 		
 	</div>

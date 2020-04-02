@@ -1,8 +1,6 @@
 <header>
-	<div id="titre_principal">
-		<div id="logo">
-			<h1><a href="/ProjetPHP/index.php">Groupe 5</a></h1>
-		</div>
+	<div id="logo">
+		<h1><a href="/ProjetPHP/index.php">Groupe 5</a></h1>
 	</div>
 	<nav>
 		<ul>

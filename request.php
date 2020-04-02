@@ -33,7 +33,6 @@ class request {
 			if ($this->_bdd === null) {
 			$dsn = $this->_dbType.':dbname='.$this->_dbName.';host='.$this->_dbAdress;
 			$this->_bdd = new PDO($dsn, $this->_user, $this->_pwd);
-			echo "Works";
 			}
 		} catch (PDOException $e){
 			echo "Connexion échouée : ".$e->getMessage();
@@ -50,6 +49,17 @@ class request {
 			print_r($row['name'].' '.$row['specie'].' '.$row['life']);
 			echo "</br>";
 		}
+	}
+
+	public function getColumns($table, $columns)
+    {
+    	$list = array();
+        $req = " SELECT " . $columns . " FROM " . $table;
+        $tab = $this->_bdd->query($req);
+        foreach ($tab as $element) {
+        	array_push($list, $element[$columns]);
+        }
+        return $list;
 	}
 
 	// public function insert($table, $nomDino, $typeDino, $lifeDino){

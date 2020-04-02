@@ -1,0 +1,22 @@
+body {
+	width: 900px;
+	margin: auto;
+}
+h1 {
+	text-align: center;
+}
+#exped {
+	text-align: left;
+}
+
+#dest {
+	text-align: right;
+}
+.logo {
+	height: 100px;
+}
+#prioAndCachet{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}

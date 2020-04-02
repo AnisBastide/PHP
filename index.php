@@ -12,16 +12,16 @@
 		<section>
 			<article>
 				<h1>
-					Nombres de stories effectuées : 8 / 15
+					Nombres de stories effectuées : 10 / 15
 				</h1>
 				<div id="stories">
 					<div>
 						<h2>Stories à faire</h2>
 						<ul>
-							<li>US8</li>
+							
 							<li>US10</li>
 							<li>US11</li>
-							<li>US12</li>
+							
 							<li>US13</li>
 							<li>US14</li>
 							<li>US15</li>
@@ -37,7 +37,9 @@
 							<li>US5</li>
 							<li>US6</li>
 							<li>US7</li>
+							<li>US8</li>
 							<li>US9</li>
+							<li>US12</li>
 						</ul>
 					</div>
 				</div>
@@ -128,24 +130,6 @@
 						?>
 					</p>
 				</div>
-				<div id="bdd">
-					<h1>
-						Base de données
-					</h1>
-					<p>
-						Ma base de données
-					</p>
-				</div>
-				<div id="laposte">
-					<h1>
-						La poste
-					</h1>
-					<p>
-						Vive les facteurs
-					</p>
-				</div>
-
-				
 			</article>
 		</section>
 	<?php include ("portions/footer.php"); ?>
