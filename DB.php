@@ -134,7 +134,7 @@ class request
      * @param $pos colonne de la table à vérifier
      * @return array retourne une liste contenant les résultats
      */
-    public function getRows($table, $list, $where){
+    public function getRows($table, $list, $where, $pos){
         $val = array();
         $count=0;
         $value = '';
@@ -146,7 +146,7 @@ class request
             $count++;
         }
         if ($where != NULL){
-            $sql = "SELECT ".$value." FROM ".$table." WHERE ".$where.";";
+            $sql = "SELECT ".$value." FROM ".$table." WHERE ".$pos."=".$where.";";
         }else{
             $sql = "SELECT ".$value." FROM ".$table.";";
         }

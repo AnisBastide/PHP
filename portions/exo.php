@@ -101,7 +101,7 @@ if (!empty($_POST)) {
         <?php
         ini_set('display_errors', 1);
         $display = new displayContact();
-        $rslt = $connect->getRows("contact", array("lastname", "firstname", "date", "gender", "mail", "address"), "");
+        $rslt = $connect->getRows("contact", array("lastname", "firstname", "date", "gender", "mail", "address"), "", "");
         $display->display($rslt);
         ?>
     </form>
