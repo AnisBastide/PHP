@@ -27,6 +27,8 @@ $form = new autoform();
     $gender = $list["gender"];
     $mail = $list["mail"];
     $address = $list["address"];
+    echo "</form>";
+    echo "<form method=\"POST\">";
     $form->getInputTextValue("lastName", "lastName", $lastName);
     $form->getInputTextValue("firstName", "firstName", $firstName);
     $form->getInputTextValue("date", "date", $userDate);
@@ -35,12 +37,12 @@ $form = new autoform();
     $form->getInputTextValue("address", "address", $address);
     $form->getInputSubmit("modify");
     if(!empty($_POST)){
-        $dbh->update("contact","lastname",$_POST["lastName"],"firstname='" .$firstName ."'");
-        $dbh->update("contact","firstname",$_POST["firstName"],"lastname='" .$lastName ."'");
-        $dbh->update("contact","date",$_POST["date"],"firstname='" .$firstName ."'");
-        $dbh->update("contact","gender",$_POST["gender"],"firstname='" .$firstName ."'");
-        $dbh->update("contact","mail",$_POST["mail"],"firstname='" .$firstName ."'");
-        $dbh->update("contact","address",$_POST["address"],"firstname='" .$firstName ."'");
+        $dbh->update("contact","lastname",$_POST["lastName"],"id=" .$list['id']);
+        $dbh->update("contact","firstname",$_POST["firstName"],"id=" .$list['id']);
+        $dbh->update("contact","date",$_POST["date"],"id=" .$list['id']);
+        $dbh->update("contact","gender",$_POST["gender"],"id=" .$list['id']);
+        $dbh->update("contact","mail",$_POST["mail"],"id=" .$list['id']);
+        $dbh->update("contact","address",$_POST["address"],"id=" .$list['id']);
     }
     ?>
 </form>

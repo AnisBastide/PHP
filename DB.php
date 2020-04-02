@@ -83,7 +83,7 @@ class request
         $req = " SELECT * FROM " . $table . " WHERE " . $condition;
         $tab = $this->_bdd->query($req);
         $tab = $tab->fetch(PDO::FETCH_ASSOC);
-        $array = array("lastname", "firstname", "date", "gender", "mail", "address");
+        $list["id"]=$tab['id'];
         $list["lastname"] = $tab['lastname'];
         $list["firstname"] = $tab['firstname'];
         $list["date"] = $tab['date'];
