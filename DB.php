@@ -83,16 +83,23 @@ class request
 
     public function getWhere($table, $condition)
     {
-        $list=array();
-        $req = "SELECT *  FROM" . $table . "WHERE " . $condition;
+        $list = array();
+        $req = " SELECT * FROM " . $table . " WHERE " . $condition;
         $tab = $this->_bdd->query($req);
-            array_push($list, $tab[0]['lastname']);
-            array_push($list, $tab[0]['firstname']);
-            array_push($list, $tab[0]['date']);
-            array_push($list, $tab[0]['gender']);
-            array_push($list, $tab[0]['mail']);
-            array_push($list, $tab[0]['adress']);
-
+        $array = array("lastname", "firstname", "date", "gender", "mail", "address");
+//        $list["lastName"] = $tab['lastname'];
+//        $list["firstName"] = $tab['firstname'];
+//        $list["userDate"] = $tab['date'];
+//        $list["gender"] = $tab['gender'];
+//        $list["mail"] = $tab['mail'];
+//        $list["adress"] = $tab['adress'];
+        $count = 0;
+        foreach ($tab as $element) {
+            $list[$array[$count]] = $element[$array[$count]];
+            echo $array[$count];
+            echo $element[$array[$count]];
+            $count++;
+        }
         return $list;
     }
 
@@ -102,7 +109,7 @@ class request
         $req = " SELECT " . $columns . " FROM " . $table;
         $tab = $this->_bdd->query($req);
         foreach ($tab as $row) {
-            array_push($list, $row['firstname']);
+            array_push($list, $row[$columns]);
         }
         return $list;
     }

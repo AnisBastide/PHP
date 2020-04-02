@@ -14,9 +14,16 @@ class sort
                     }
                     }
                 }
+        $count=0;
+        $result="";
         foreach ($array as $v1) {
-            echo "$v1 ,";
+            $result=$result . "$v1";
+            if($count<count($array)-1){
+                $result=$result . ",";
+            }
+            $count++;
         }
+        echo $result;
     }
 }
 
