@@ -17,8 +17,8 @@ class autoform {
 
 	public function getInputList($label, $name, $values){
 
-		echo '<p><label for="'.$name.'">'.$label.' : </label><br>';
-		echo '<select id="'.$name.'" name="'.$name.'">';
+		echo '<p><label for="'.$name.'">'.$label.'</label><br>';
+		echo '<select id="'.$name.'" name="'.$name.'" onchange="">';
 		foreach ($values as $value) {
 			echo '<option value="'.$value.'">'.$value.'</option>';
 		}
@@ -41,17 +41,13 @@ class autoform {
 
 	public function getInputDate($label, $name){
 		echo '<p><label for="'.$name.'">'.$label.' : </label> ';
-		echo '<input type="date" id="'.$name.'" name="'.$name.'" min="2018-01-01" max="2018-12-31"></p>';
+		echo '<input type="date" id="'.$name.'" name="'.$name.'"></p>';
 	}
 
 	public function getInputTextArea($label, $name){
 		echo '<p><label for="'.$name.'">'.$label.' : </label></p>';
 		echo '</p><textarea id="'.$name.'" name="'.$name.'" rows="5" cols="33"></textarea></p>';
 	}
-
-
-
-
 
 }
 

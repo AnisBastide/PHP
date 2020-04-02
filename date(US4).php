@@ -1,7 +1,7 @@
 <?php
 
 
-class US4
+class date
 {
     public function countSecond($sec){
         date_default_timezone_set('Europe/Paris');
