@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="MonSite_PierreDecrock/style.css"/>
@@ -126,6 +127,16 @@
                                 $smallestNumber->getSmallestNumber($_POST["firstNumber"],$_POST["secondNumber"],$_POST["thirdNumber"]);
                             }
 							?>
+                            <?php
+                            $form->getInputText("primeNumber","primeNumber");
+                            $form->getInputSubmit("submit");
+                            ini_set('display_errors',1);
+                            require "US3.php";
+                            $primeNumber = new primeNumber();
+                            if($_POST!=null){
+                                $primeNumber->generatePrimeNumbers($_POST["primeNumber"]);
+                            }
+                            ?>
                             </form>
 						</p>
 					</div>
@@ -178,5 +189,5 @@
 
 			</footer>
 		</div>
-	</body>		
+	</body>
 </html>
