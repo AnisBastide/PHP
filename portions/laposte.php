@@ -8,6 +8,7 @@
 	<?php 
 		include ("header.php");
 		require "../autoform.php";
+
 	?>
 
 	<h2>La Poste</h2>
@@ -17,7 +18,6 @@
 
 
 		$form = new autoform();
-		$req = new request('root','root','php', 'mysql','localhost');
 		?>
 		<h4>Expéditeur : </h4>
 		<?php
