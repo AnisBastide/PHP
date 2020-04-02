@@ -49,7 +49,6 @@
 						<?php 
 							require "dinosaure.php";
 							require "autoform.php";
-							require "request.php";
 							require "factorial(US7).php";
 							/*$dino = new tyrex("555", "40", 4, "Méga Tyrex","m", "1", 4);
 							$trex = new tyrex("333", "30", 3, "Mini Tyrex","m", "2", 2);

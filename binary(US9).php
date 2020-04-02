@@ -2,6 +2,10 @@
 
 class binary
 {
+    /**
+     * Permet de convertir un nombre donné par l'utilisateur en binaire
+     * @param $nb correspond au nombre donné par l'utilisateur
+     */
     public function binaryConverter($nb)
     {
 

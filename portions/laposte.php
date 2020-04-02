@@ -8,7 +8,6 @@
 	<?php 
 		include ("header.php");
 		require "../autoform.php";
-		require "../request.php";
 
 	?>
 
@@ -18,7 +17,6 @@
 		<?php
 
 		$form = new autoform();
-		$req = new request('root','root','php', 'mysql','localhost');
 
 		?>
 		<h4>Expéditeur : </h4>
