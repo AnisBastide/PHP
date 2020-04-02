@@ -1,5 +1,8 @@
 <?php
-class request{
+
+class request
+{
+
 
     private $_user;
     private $_pwd;
@@ -12,10 +15,10 @@ class request{
      * Méthode constructeur permettant de créer une connexion
      * avec notre base de données
      * @param $user =>    permet d'indiquer l'utilisateur PhpMyAdmin
-     * @param $pwd  =>    permet d'indiquer le mot de passe de l'utilisateur PHPMyAdmin
-     * @param $dbname=>    permet d'indiquer le nom de la base de données à laquelle je veux me connecter
-     * @param $dbtype=>    permet d'indiquer le type de base de donnée sur lequel je vais établir une connexion (Oracle, mySQL...)
-     * @param $dbadress=>  permet de fournir l'adresse sur laquelle est installé notre base (localhost ou l'adresse IP de notre serveur/ ou nom de domaine)
+     * @param $pwd =>    permet d'indiquer le mot de passe de l'utilisateur PHPMyAdmin
+     * @param $dbname =>    permet d'indiquer le nom de la base de données à laquelle je veux me connecter
+     * @param $dbtype =>    permet d'indiquer le type de base de donnée sur lequel je vais établir une connexion (Oracle, mySQL...)
+     * @param $dbadress =>  permet de fournir l'adresse sur laquelle est installé notre base (localhost ou l'adresse IP de notre serveur/ ou nom de domaine)
      */
     public function __construct($user, $pwd, $dbname, $dbtype, $dbadress)
     {
@@ -33,15 +36,17 @@ class request{
      * une connexion avec la base de données
      * via l'objet PDO en utilisant les variables de classes
      */
-    private function connectDB(){
+    private function connectDB()
+    {
         try {
-            if($this->_bdd===null){
-                $dsn = $this->_dbType.':dbname='.$this->_dbName.';host='.$this->_dbAdress;
+            if ($this->_bdd === null) {
+                $dsn = $this->_dbType . ':dbname=' . $this->_dbName . ';host=' . $this->_dbAdress;
+
                 $this->_bdd = new PDO($dsn, $this->_user, $this->_pwd);
             }
 
         } catch (PDOException $e) {
-            echo'Connexion échouée : ' . $e->getMessage();
+            echo 'Connexion échouée : ' . $e->getMessage();
             die();
         }
     }
@@ -51,10 +56,65 @@ class request{
      * Permet de réaliser une requête Select
      * et d'afficher chaque enregistrement à l'utilisateur
      */
-    public function getAllRows($table, $list, $where){
+    public function Insert($table, $list)
+    {
+        $count = 0;
+        $value = '';
+        foreach ($list as $element) {
+            $value = $value . $element;
+            if ($count < count($list) - 1) {
+                $value = $value . ",";
+            }
+            $count++;
+        }
+        $sql = "INSERT INTO " . $table . " VALUES ( " . $value . " )";
+        $tab = $this->_bdd->query($sql);
+    }
+
+    public function getWhere($table, $condition)
+    {
+        $list = array();
+        $req = " SELECT * FROM " . $table . " WHERE " . $condition;
+        $tab = $this->_bdd->query($req);
+        $array = array("lastname", "firstname", "date", "gender", "mail", "address");
+//        $list["lastName"] = $tab['lastname'];
+//        $list["firstName"] = $tab['firstname'];
+//        $list["userDate"] = $tab['date'];
+//        $list["gender"] = $tab['gender'];
+//        $list["mail"] = $tab['mail'];
+//        $list["adress"] = $tab['adress'];
+        $count = 0;
+        foreach ($tab as $element) {
+            $list[$array[$count]] = $element[$array[$count]];
+            echo $array[$count];
+            echo $element[$array[$count]];
+            $count++;
+        }
+        return $list;
+    }
+
+    public function getColumns($columns, $table)
+    {
+        $list = array();
+        $req = " SELECT " . $columns . " FROM " . $table;
+        $tab = $this->_bdd->query($req);
+        foreach ($tab as $row) {
+            array_push($list, $row[$columns]);
+        }
+        return $list;
+    }
+
+    /**
+     * Permet d'effectuer une une requête SELECT all
+     * @param $table nom de la table où effectuer la requête
+     * @param $where
+     * @param $pos colonne de la table à vérifier
+     * @return array retourne une liste contenant les résultats
+     */
+    public function getAllRows($table, $where, $pos){
         $val = array();
         if ($where != NULL){
-            $sql = "SELECT * FROM ".$table." WHERE ".$where.";";
+            $sql = "SELECT * FROM ".$table." WHERE ".$pos."=".$where.";";
         }else{
             $sql = "SELECT * FROM ".$table.";";
         }
@@ -66,6 +126,14 @@ class request{
         return $val;
     }
 
+    /**
+     * Permet d'effectuer une une requête SELECT spécifique
+     * @param $table nom de la table où effectuer la requête
+     * @param $list liste contenant le nom des colonnes
+     * @param $where
+     * @param $pos colonne de la table à vérifier
+     * @return array retourne une liste contenant les résultats
+     */
     public function getRows($table, $list, $where){
         $val = array();
         $count=0;
