@@ -2,6 +2,11 @@
 
 class displayContact
 {
+    /**
+     * Affiche un tableau contenant le contenu de la liste entrée en argument
+     * Et affiche une couleur une ligne sur deux
+     * @param $array liste contenant le résultat d'une requête SELECT
+     */
     public function display($array)
     {
         $n = 0;
@@ -21,14 +26,5 @@ class displayContact
         echo "</table>";
     }
 
-    public function us14($array){
-        $rslt = array();
-        foreach ($array as $tab){
-            foreach ($tab as $value){
-                $rslt[] = $value;
-            }
-        }
-        return $rslt;
-    }
 }
 ?>

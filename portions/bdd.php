@@ -12,7 +12,8 @@ include "../autoform.php";
 $form = new autoform();
 ?>
 
-<form method="POST" onsubmit="">
+
+<form method="POST">
     <?php
     ini_set('display_errors', 1);
     $dbh = new request('root', 'root', 'php', 'mysql', 'localhost');
@@ -20,7 +21,6 @@ $form = new autoform();
     $form->getInputList("name", "name", $tab);
     $form->getInputSubmit("submit");
     $list = $dbh->getWhere("contact", "firstname=" . "'" . $_POST["name"] . "'");
-//    var_dump($list);
     $lastName = $list["lastname"];
     $firstName = $list["firstname"];
     $userDate = $list["date"];

@@ -14,15 +14,14 @@
 
 	<form method="POST" action="template.php" target="_BLANK">
 		<?php
-        ini_set('display_errors',1);
+
 
 		$form = new autoform();
+		$req = new request('root','root','php', 'mysql','localhost');
 		?>
 		<h4>Expéditeur : </h4>
 		<?php
-        ini_set('display_errors',1);
-
-        $form->getInputText('Nom', 'lastnameExp');
+		$form->getInputText('Nom', 'lastnameExp');
 		$form->getInputText('Prénom', 'firstnameExp');
 		$form->getInputText('Adresse', 'adressExp');
 		$form->getInputText('Adresse mail', 'mailExp');
@@ -31,8 +30,6 @@
 		?>
 		<h4>Destinataire : </h4>
 		<?php
-        ini_set('display_errors',1);
-
         $form->getInputText('Nom', 'lastnameDest');
 		$form->getInputText('Prénom', 'firstnameDest');
 		$form->getInputText('Adresse', 'adressDest');

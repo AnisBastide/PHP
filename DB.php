@@ -98,13 +98,19 @@ class request
         return $list;
     }
 
-    public function getAllRows($table, $where)
-    {
+    /**
+     * Permet d'effectuer une une requête SELECT all
+     * @param $table nom de la table où effectuer la requête
+     * @param $where
+     * @param $pos colonne de la table à vérifier
+     * @return array retourne une liste contenant les résultats
+     */
+    public function getAllRows($table, $where, $pos){
         $val = array();
-        if ($where != NULL) {
-            $sql = "SELECT * FROM " . $table . " WHERE " . $where . ";";
-        } else {
-            $sql = "SELECT * FROM " . $table . ";";
+        if ($where != NULL){
+            $sql = "SELECT * FROM ".$table." WHERE ".$pos."=".$where.";";
+        }else{
+            $sql = "SELECT * FROM ".$table.";";
         }
         $this->_bdd->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $tab = $this->_bdd->query($sql);
@@ -114,8 +120,16 @@ class request
         return $val;
     }
 
-    public function getRows($table, $list, $where)
-    {
+
+    /**
+     * Permet d'effectuer une une requête SELECT spécifique
+     * @param $table nom de la table où effectuer la requête
+     * @param $list liste contenant le nom des colonnes
+     * @param $where
+     * @param $pos colonne de la table à vérifier
+     * @return array retourne une liste contenant les résultats
+     */
+    public function getRows($table, $list, $where, $pos){
         $val = array();
         $count = 0;
         $value = '';
@@ -126,10 +140,10 @@ class request
             }
             $count++;
         }
-        if ($where != NULL) {
-            $sql = "SELECT " . $value . " FROM " . $table . " WHERE " . $where . ";";
-        } else {
-            $sql = "SELECT " . $value . " FROM " . $table . ";";
+        if ($where != NULL){
+            $sql = "SELECT ".$value." FROM ".$table." WHERE ".$pos."=".$where.";";
+        }else{
+            $sql = "SELECT ".$value." FROM ".$table.";";
         }
         $this->_bdd->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $tab = $this->_bdd->query($sql);
