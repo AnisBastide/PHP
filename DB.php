@@ -76,20 +76,21 @@ class request
         $list = array();
         $req = " SELECT * FROM " . $table . " WHERE " . $condition;
         $tab = $this->_bdd->query($req);
+        $tab = $tab->fetch(PDO::FETCH_ASSOC);
         $array = array("lastname", "firstname", "date", "gender", "mail", "address");
-//        $list["lastName"] = $tab['lastname'];
-//        $list["firstName"] = $tab['firstname'];
-//        $list["userDate"] = $tab['date'];
-//        $list["gender"] = $tab['gender'];
-//        $list["mail"] = $tab['mail'];
-//        $list["adress"] = $tab['adress'];
-        $count = 0;
-        foreach ($tab as $element) {
-            $list[$array[$count]] = $element[$array[$count]];
-            echo $array[$count];
-            echo $element[$array[$count]];
-            $count++;
-        }
+        $list["lastname"] = $tab['lastname'];
+        $list["firstname"] = $tab['firstname'];
+        $list["date"] = $tab['date'];
+        $list["gender"] = $tab['gender'];
+        $list["mail"] = $tab['mail'];
+        $list["address"] = $tab['address'];
+//        $count = 0;
+//        foreach ($tab as $element) {
+//            $list[$array[$count]] = $element[$array[$count]];
+//            echo $array[$count];
+//            echo $element[$array[$count]];
+//            $count++;
+//        }
         return $list;
     }
 
@@ -161,6 +162,9 @@ class request
         if ($this->_bdd->query($sql)===true) {
             $this->_bdd->query($sql);
         }
+    }
+    public function update(){
+        
     }
 }
 

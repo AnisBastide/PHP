@@ -1,5 +1,9 @@
 <?php
 class primeNumber{
+    /**
+     * the method display all the the prime number smaller than the given number
+     * @param $number the number to be the limit
+     */
     public function generatePrimeNumbers($number){
         $list=array();
         for($i=1;$i<=$number;$i++){

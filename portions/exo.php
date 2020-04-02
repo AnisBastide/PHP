@@ -20,14 +20,19 @@ require "../DB.php";
 require "../displayContact(US13).php";
 $form = new autoform();
 $date = new date();
+
+
+?>
+<form method="post">
+<?php
 $form->getInputText("Seconde", "second");
 $form->getInputSubmit("Valider");
-?>
-<?php
 if (!empty($_POST)) {
-    $date->countSecond($_POST["second"]);
+    $time=$date->countSecond($_POST["second"]);
+    echo $time;
 }
 ?>
+</form>
 <form method="POST" action="#">
     <?php
     ini_set('display_errors', 1);
@@ -126,6 +131,10 @@ if (!empty($_POST)) {
             $form->getInputSubmit("Valider");
 
             ?>
+        </form>
+
+        <form method="POST" action="#">
+
             <?php
             $form2 = new autoform;
 
@@ -180,33 +189,6 @@ if (!empty($_POST)) {
             </form>
         </form>
     </div>
-
-    <form method="POST" action="#">
-        <?php
-        $form = new autoform();
-        $date = new date();
-        $form->getInputText("Seconde", "second");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)) {
-            $date->countSecond($_POST["second"]);
-        }
-        ?>
-    </form>
-    <form method="POST" action="#">
-        <?php
-        ini_set('display_errors', 1);
-        $number = new RomanNumber();
-        $form->getInputText("Nombre", "roman");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)) {
-            $number->translateRomanNumber($_POST["roman"]);
-        }
-        ?>
-    </form>
 </div>
 
 

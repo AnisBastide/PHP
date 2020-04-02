@@ -20,7 +20,7 @@ $form = new autoform();
     $form->getInputList("name", "name", $tab);
     $form->getInputSubmit("submit");
     $list = $dbh->getWhere("contact", "firstname=" . "'" . $_POST["name"] . "'");
-    var_dump($list);
+//    var_dump($list);
     $lastName = $list["lastname"];
     $firstName = $list["firstname"];
     $userDate = $list["date"];

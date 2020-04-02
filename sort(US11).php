@@ -2,6 +2,11 @@
 
 class sort
 {
+    /**
+     * @param $array list of name to sort
+     * the method sort a list of name by the second letter
+     * and display it.
+     */
     public function sortName($array)
     {
         $n = count($array);

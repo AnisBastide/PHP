@@ -2,6 +2,12 @@
 
 class smallestNumber
 {
+    /**
+     * the function take three number and display the smaller
+     * @param $firstNumber the first number
+     * @param $secondNumber the second number
+     * @param $thirdNumber the third number
+     */
     public function getSmallestNumber($firstNumber, $secondNumber, $thirdNumber)
     {
         if ($firstNumber < $secondNumber && $firstNumber < $thirdNumber) {
