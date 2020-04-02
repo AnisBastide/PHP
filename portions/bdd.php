@@ -12,7 +12,7 @@ include "../autoform.php";
 $form = new autoform();
 ?>
 
-<form method="POST">
+<form method="POST" onsubmit="">
     <?php
     ini_set('display_errors', 1);
     $dbh = new request('root', 'root', 'php', 'mysql', 'localhost');
@@ -27,12 +27,21 @@ $form = new autoform();
     $gender = $list["gender"];
     $mail = $list["mail"];
     $address = $list["address"];
-    $form->getInputTextValue("lastName", "lastname", $lastName);
+    $form->getInputTextValue("lastName", "lastName", $lastName);
     $form->getInputTextValue("firstName", "firstName", $firstName);
     $form->getInputTextValue("date", "date", $userDate);
     $form->getInputTextValue("gender", "gender", $gender);
     $form->getInputTextValue("mail", "mail", $mail);
-    $form->getInputTextValue("adress", "adress", $address);
+    $form->getInputTextValue("address", "address", $address);
+    $form->getInputSubmit("modify");
+    if(!empty($_POST)){
+        $dbh->update("contact","lastname",$_POST["lastName"],"firstname='" .$firstName ."'");
+        $dbh->update("contact","firstname",$_POST["firstName"],"lastname='" .$lastName ."'");
+        $dbh->update("contact","date",$_POST["date"],"firstname='" .$firstName ."'");
+        $dbh->update("contact","gender",$_POST["gender"],"firstname='" .$firstName ."'");
+        $dbh->update("contact","mail",$_POST["mail"],"firstname='" .$firstName ."'");
+        $dbh->update("contact","address",$_POST["address"],"firstname='" .$firstName ."'");
+    }
     ?>
 </form>
 <?php include("footer.php"); ?>

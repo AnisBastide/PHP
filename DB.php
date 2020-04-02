@@ -84,13 +84,6 @@ class request
         $list["gender"] = $tab['gender'];
         $list["mail"] = $tab['mail'];
         $list["address"] = $tab['address'];
-//        $count = 0;
-//        foreach ($tab as $element) {
-//            $list[$array[$count]] = $element[$array[$count]];
-//            echo $array[$count];
-//            echo $element[$array[$count]];
-//            $count++;
-//        }
         return $list;
     }
 
@@ -104,41 +97,44 @@ class request
         }
         return $list;
     }
-    public function getAllRows($table, $where){
+
+    public function getAllRows($table, $where)
+    {
         $val = array();
-        if ($where != NULL){
-            $sql = "SELECT * FROM ".$table." WHERE ".$where.";";
-        }else{
-            $sql = "SELECT * FROM ".$table.";";
+        if ($where != NULL) {
+            $sql = "SELECT * FROM " . $table . " WHERE " . $where . ";";
+        } else {
+            $sql = "SELECT * FROM " . $table . ";";
         }
         $this->_bdd->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $tab = $this->_bdd->query($sql);
-        foreach ($tab as $rslt){
-            $val[]=$rslt;
+        foreach ($tab as $rslt) {
+            $val[] = $rslt;
         }
         return $val;
     }
 
-    public function getRows($table, $list, $where){
+    public function getRows($table, $list, $where)
+    {
         $val = array();
-        $count=0;
+        $count = 0;
         $value = '';
-        foreach($list as $element){
-            $value = $value.$element;
-            if($count<count($list)-1){
-                $value = $value.",";
+        foreach ($list as $element) {
+            $value = $value . $element;
+            if ($count < count($list) - 1) {
+                $value = $value . ",";
             }
             $count++;
         }
-        if ($where != NULL){
-            $sql = "SELECT ".$value." FROM ".$table." WHERE ".$where.";";
-        }else{
-            $sql = "SELECT ".$value." FROM ".$table.";";
+        if ($where != NULL) {
+            $sql = "SELECT " . $value . " FROM " . $table . " WHERE " . $where . ";";
+        } else {
+            $sql = "SELECT " . $value . " FROM " . $table . ";";
         }
         $this->_bdd->SetAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         $tab = $this->_bdd->query($sql);
-        foreach ($tab as $rslt){
-            $val[]=$rslt;
+        foreach ($tab as $rslt) {
+            $val[] = $rslt;
         }
         return $val;
     }
@@ -148,29 +144,29 @@ class request
      * @param $table nom de la table sur laquelle effectuée le INSERT
      * @param $list éléments à ajouter
      */
-    public function getInsert($table,$list){
-        $count=0;
+    public function getInsert($table, $list)
+    {
+        $count = 0;
         $value = '';
-        foreach($list as $element){
-            $value = $value.$element;
-            if($count<count($list)-1){
-                $value = $value.",";
+        foreach ($list as $element) {
+            $value = $value . $element;
+            if ($count < count($list) - 1) {
+                $value = $value . ",";
             }
             $count++;
         }
-        $sql = "INSERT INTO ".$table." VALUES (default,".$value." )";
-        if ($this->_bdd->query($sql)===true) {
+        $sql = "INSERT INTO " . $table . " VALUES (default," . $value . " )";
+        if ($this->_bdd->query($sql) === true) {
             $this->_bdd->query($sql);
         }
     }
-    public function update(){
-        
+
+    public function update($table, $column, $valeur, $condition)
+    {
+        $req = "UPDATE " . $table . " SET " . $column . "='" . $valeur . "' WHERE " . $condition ."";
+        $this->_bdd->exec($req);
     }
 }
-
-
-
-
 
 
 ?>
