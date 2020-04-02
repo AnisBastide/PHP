@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07780d9c-1fcc-467a-8700-a7a24c6c240e" name="Default Changelist" comment="Merge branch 'pierre' of https://github.com/AnisBastide/PHP into UserStory5&#10;&#10;# Conflicts:&#10;#&#9;index.php&#10;#&#9;portions/algo.php&#10;#&#9;portions/bdd.php&#10;#&#9;portions/exo.php&#10;#&#9;portions/footer.php&#10;#&#9;portions/header.php&#10;#&#9;portions/laposte.php&#10;#&#9;request.php">
+      <change afterPath="$PROJECT_DIR$/portions/confidential.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portions/template.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portions/templateStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portions/timbreRouge.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portions/timbreVert.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoform.php" beforeDir="false" afterPath="$PROJECT_DIR$/autoform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portions/bdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/bdd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sort(US11).php" beforeDir="false" afterPath="$PROJECT_DIR$/sort(US11).php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/binary(US9).php" beforeDir="false" afterPath="$PROJECT_DIR$/binary(US9).php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portions/exo.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/exo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portions/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portions/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portions/laposte.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/laposte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portions/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/portions/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request.php" beforeDir="false" afterPath="$PROJECT_DIR$/request.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +50,12 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/portions" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />

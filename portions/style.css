@@ -9,27 +9,16 @@ html{
 }
 body
 {
-	/*background-color: #A5E39E*/;
 	font-family: 'ambleregular', Arial, sans-serif;
 	width: 900px;
 	margin: auto;
 }
-
-/*#bloc
-{
-	width: 900px;
-	margin: auto;
-}*/
 
 @media all and (max-width: 1024px)
 {
 	body{
 		width: auto;
 	}
-	/*#bloc
-	{
-		width: auto;
-	}*/
 	/*nav
 	{
 		width: auto;
@@ -77,26 +66,18 @@ header
 	justify-content: space-between;
 	align-items: flex-end;
 }
-/*#logo a{*/
-/*	font-size: 0.2em;*/
-/*	color: grey;*/
-/*	text-decoration: none;*/
-/*}*/
-/*#logo a:hover{*/
-/*	color: gold;*/
-/*	border-bottom: 3px solid #760001;*/
-/*}*/
-#titre_principal
+#logo a, nav a
 {
-	display: flex;
-	flex-direction: column;
+	font-size: 1em;
+	color: grey;
+	padding-bottom: 2px;
+	text-decoration: none;
+}
+#logo a:hover, nav a:hover{	
+	color: gold;
+	border-bottom: 3px solid #760001;
 }
 
-header h1
-{
-	font-size: 10em;
-	font-weight: normal;
-}
 header nav {
 	margin-bottom: 10px;
 }
@@ -110,20 +91,6 @@ nav ul
 nav li
 {
 	margin-right: 20px
-}
-
-nav a
-{
-	font-size: 1.4em;
-	color: grey;
-	padding-bottom: 2px;
-	text-decoration: none;
-}
-
-nav a:hover
-{
-	color: gold;
-	border-bottom: 3px solid #760001;
 }
 
 #couverture
@@ -167,29 +134,6 @@ article p
 {
     font-size: 0.8em;
 }
-/*
-aside
-{
-    flex: 1.2;
-    position: relative;
-    background-color: #CDFBB3;
-    box-shadow: 0px 2px 5px #1c1a19;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 0.9em;
-}
-
-#photo_de_Pierre
-{
-	text-align: center;
-}
-#photo_de_Pierre img
-{
-	border: 1px solid #181818;
-}*/
-
-
-
 /*-------------------Footer-------------------*/
 
 

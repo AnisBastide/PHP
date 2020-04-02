@@ -1,6 +1,7 @@
 <?php
 class binary{
     public function binaryConverter($nb){
+        $base = $nb;
         $tab = array();
         while ($nb > 0) {
             $reste = $nb%2;
@@ -8,7 +9,7 @@ class binary{
             $nb = (int)($nb/2);
         }
         $result = implode("", array_reverse($tab));
-        echo "<p>le résulat en binaire est : ".$result."</p>";
+        echo "<p>le conversion en binaire de ".$base." est : ".$result."</p>";
     }
 }
 ?>
