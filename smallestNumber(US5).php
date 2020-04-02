@@ -1,6 +1,6 @@
 <?php
 
-class Utility
+class smallestNumber
 {
     public function getSmallestNumber($firstNumber, $secondNumber, $thirdNumber)
     {

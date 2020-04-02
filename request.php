@@ -1,53 +1,76 @@
 <?php
 
+class request {
+	private $_user;
+	private $_pwd;
+	private $_dbName;
+	private $_dbType;
+	private $_dbAdress;
+	private $_bdd; 
+/**
+ *Méthode constructeur permettant de créer une connexion avec notre bdd 
+ *@user -> permet d'indiquer l'utilisateur phpmyadmin
+ *@pwd -> permet d'indiquer le mot de passe de l'utilisateur phpmyadmin
+ *@dbName -> permet d'indiquer le nom de la bdd à laquelle je veux me connecter
+ *@dbType -> permet d'indiquer le type de bdd sur laquelle je vais établir ma connexion (Oracle, mySql, etc)
+ *@dbAdress -> permet de fournir l'adresse sur laquelle est installée notre base (localhost ou l'adresse IP de notre serveur / ou de notre domaine)
+ */
+	public function __construct($user, $pwd, $dbName, $dbType, $dbAdress){
+		$this->_user = $user;
+		$this->_pwd = $pwd;
+		$this->_dbName = $dbName;
+		$this->_dbType = $dbType;
+		$this->_dbAdress = $dbAdress;
 
-class request
-{
-    private $_user;
-    private $_pwd;
-    private $_dbName;
-    private $_dbType;
-    private $_dbAdress;
-    private $_bdd;
+		$this->connectDb();
+	}
+/**
+ * Méthode permettant d'établir une connexion à la bdd via l'objet PDO
+ * en utilisant les variables de classe
+ */
+	public function connectDb(){
+		try {
+			if ($this->_bdd === null) {
+			$dsn = $this->_dbType.':dbname='.$this->_dbName.';host='.$this->_dbAdress;
+			$this->_bdd = new PDO($dsn, $this->_user, $this->_pwd);
+			echo "Works";
+			}
+		} catch (PDOException $e){
+			echo "Connexion échouée : ".$e->getMessage();
+			die();
+		}
+	}
+/**
+ * Méthode permettant d'établir une connexion à la bdd via l'objet PDO
+ * en utilisant les variables de classe
+ */
+	public function getAllRows($table, $columns){
+		$req = "SELECT ".$columns." FROM ".$table;
+		foreach ($this->_bdd->query($req) as $row) {
+			print_r($row['name'].' '.$row['specie'].' '.$row['life']);
+			echo "</br>";
+		}
+	}
 
-    /**
-     * Method construction to create a connection to the request.
-     * @param $user indicates PhpMyAdmin's user
-     * @param $pwd indicates PhpMyAdmin's password
-     * @param $dbName indicates the DataBase's name
-     * @param $dbType indicates the DataBase's type
-     * @param $dbAdress indicates the DataBase's adress
-     */
-    public function __construct($user, $pwd, $dbName, $dbType, $dbAdress)
-    {
-        $this->_user = $user;
-        $this->_pwd = $pwd;
-        $this->_dbName = $dbName;
-        $this->_dbType = $dbType;
-        $this->_dbAdress = $dbAdress;
-
-        $this->connectDB();
-    }
-
-    private function connectDB(){
-        try{
-            if ($this->_bdd===null){
-                $dsn = $this->_dbType.':dbname='.$this->_dbName.';host='.$this->_dbAdress.'';
-                $db = new PDO($dsn, $this->_user, $this->_pwd);
-            }
-        }catch (PDOException $e){
-            echo "connexion échoué :".$e->getMessage();
-            die();
+	// public function insert($table, $nomDino, $typeDino, $lifeDino){
+	// 	$req = "INSERT INTO ".$table." ('id', 'name', 'specie', 'life') VALUES (NULL,".$nomDino.", ".$typeDino.", ".$lifeDino.")";
+	// 	$this->_bdd->query($req);
+	// }
+	public function getInsert($table,$list){
+        $count=0;
+        $value = '';
+        foreach($list as $element){
+	        $value = $value.$element;
+	        if($count<count($list)-1){
+	        	$value = $value.",";
+	        }
+	        $count++;
         }
+        $sql = "INSERT INTO ".$table." VALUES ( ".$value." )";
+        $this->_bdd->query($sql);
     }
 
-    public function getAllRows($table, $columns){
-        $req = "SELECT ".$columns." FROM ".$table;
-        $tab = $this->_bdd->request($req);
-        foreach ($tab as $row){
-            print_r($row['name']);
-            echo "<br>";
-        }
-    }
 }
+
+
 ?>
