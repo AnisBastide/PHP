@@ -5,6 +5,10 @@ class hexadecimal
     private $translate = [10 => "A", 11 => "B", 12 => "C", 13 => "D", 14 => "E", 15 => "F"];
     private $result = "";
 
+    /**
+     * take a decimal number amd translate it into hexadecimal
+     * @param $number the number to be translated
+     */
     public function translateToHexa($number)
     {
         while ($number > 0) {

@@ -71,6 +71,12 @@ class request
         $tab = $this->_bdd->query($sql);
     }
 
+    /**
+     * return all the element that match the condition on the database into a list
+     * @param $table the table in the database
+     * @param $condition the condition to match
+     * @return array the list that contain the element that match
+     */
     public function getWhere($table, $condition)
     {
         $list = array();
@@ -87,6 +93,12 @@ class request
         return $list;
     }
 
+    /**
+     * return all the element of a column into a list
+     * @param $columns the column to get
+     * @param $table the table where is the column you want
+     * @return array all element in the column into a list
+     */
     public function getColumns($columns, $table)
     {
         $list = array();
