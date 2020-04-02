@@ -18,61 +18,8 @@ require "../primeNumber(US3).php";
 require "../sort(US11).php";
 require "../DB.php";
 require "../displayContact(US13).php";
-$form = new autoform();
-$date = new date();
-$form->getInputText("Seconde", "second");
-$form->getInputSubmit("Valider");
+require "../hexadecimal(US8).php";
 ?>
-<?php
-if (!empty($_POST)) {
-    $date->countSecond($_POST["second"]);
-}
-?>
-<form method="POST" action="#">
-    <?php
-    ini_set('display_errors', 1);
-    $number = new RomanNumber();
-    $form->getInputText("Nombre", "roman");
-    $form->getInputSubmit("Valider");
-    ?>
-    <?php
-    if (!empty($_POST)) {
-        $number->translateRomanNumber($_POST["roman"]);
-    }
-    ?>
-</form>
-
-    <form method="POST">
-        <?php
-        /**
-         * Vérifie le format de l'email et de la date
-         */
-        /*US10*/
-        ini_set("display_errors", 1);
-        $form->getInputText("Email", "email");
-        $form->getInputText("Date de naissance", "birth");
-        $form->getInputSubmit("Valid");
-        ?>
-        <?php
-        ini_set('display_errors', 1);
-        if (!empty($_POST["email"])) {
-            if (preg_match("/[aA0-zZ9]{3}\@[aA0-zZ9]{1,}\.[aA-zZ]/", $_POST["email"])) {
-                echo "Email valide";
-            } else {
-                echo "Email invalide";
-            }
-        }
-        if (!empty($_POST["birth"])) {
-            if (preg_match("/\d\d\/\d\d\/\d\d/", $_POST["birth"])) {
-                echo "Date valide";
-            } else {
-                echo "Date invalide";
-            }
-        }
-        ?>
-    </form>
-
-    <input type="date" id="name" name="name" value="17-03-1995">
     <div id="exos">
         <h1>
             Exos
@@ -84,34 +31,33 @@ if (!empty($_POST)) {
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
         </p>
-        <p>
-        <form method="POST" action="#">
+        <h3>US 3</h3>
+        <form method="POST">
             <?php
-            $form = new autoform;
-
-            $form->getInputText("Nombre à calculer", "number");
-            if (!empty($_POST)) {
-                $fac = new factorial;
-                $fac->factor($_POST["number"]);
+            $form = new autoform();
+            $form->getInputText("primeNumber", "primeNumber");
+            $form->getInputSubmit("submit");
+            ini_set('display_errors', 1);
+            $primeNumber = new primeNumber();
+            if ($_POST != null) {
+                $primeNumber->generatePrimeNumbers($_POST["primeNumber"]);
             }
-
-            $form->getInputSubmit("Valider");
-
-            ?>
-            <?php
-            $form2 = new autoform;
-
-            $form2->getInputText("Nombre à transformer en binaire", "binary");
-            if (!empty($_POST)) {
-                $bin = new binary();
-                $bin->binaryConverter($_POST["binary"]);
-            }
-
-            $form2->getInputSubmit("Valider");
-
             ?>
         </form>
-        </p>
+        <h3>US 4</h3>
+        <form method="POST" action="#">
+            <?php
+            $date = new date();
+            $form->getInputText("Seconde", "second");
+            $form->getInputSubmit("Valider");
+            ?>
+            <?php
+            if (!empty($_POST)) {
+                $date->countSecond($_POST["second"]);
+            }
+            ?>
+        </form>
+        <h3>US 5</h3>
         <form method="post">
             <?php
 
@@ -129,56 +75,106 @@ if (!empty($_POST)) {
                 $smallestNumber->getSmallestNumber($_POST["firstNumber"], $_POST["secondNumber"], $_POST["thirdNumber"]);
             }
             ?>
+        </form>
+        <h3>US 6</h3>
+        <form method="POST" action="#">
             <?php
-            $form->getInputText("primeNumber", "primeNumber");
-            $form->getInputSubmit("submit");
             ini_set('display_errors', 1);
-            $primeNumber = new primeNumber();
-            if ($_POST != null) {
-                $primeNumber->generatePrimeNumbers($_POST["primeNumber"]);
+            $number = new RomanNumber();
+            $form->getInputText("Nombre", "roman");
+            $form->getInputSubmit("Valider");
+            ?>
+            <?php
+            if (!empty($_POST)) {
+                $number->translateRomanNumber($_POST["roman"]);
             }
             ?>
-            <form method="post">
-                <?php
-                ini_set('display_errors', 1);
-                $form->getInputText("nameToSort", "nameToSort");
-                $form->getInputSubmit("submit");
-                $sort = new sort();
-                $arrayName = explode(",", $_POST["nameToSort"]);
-                if ($_POST != null) {
-                    $sort->sortName($arrayName);
+        </form>
+        <h3>US 7</h3>
+        <form method="POST" action="#">
+            <?php
+            $form = new autoform;
+
+            $form->getInputText("Nombre à calculer", "number");
+            if (!empty($_POST)) {
+                $fac = new factorial;
+                $fac->factor($_POST["number"]);
+            }
+
+            $form->getInputSubmit("Valider");
+
+            ?>
+        </form>
+        <h3>US 8</h3>
+        <form method="POST">
+            <?php
+            $hexa = new hexadecimal();
+            $form->getInputText("hexaNumber","hexaNumber");
+            $form->getInputSubmit("valider");
+            if (!empty($_POST)){
+                $hexa->translateToHexa($_POST["hexaNumber"]);
+            }
+            ?>
+        </form>
+        <h3>US 9</h3>
+        <form>
+            <?php
+            $form2 = new autoform;
+
+            $form2->getInputText("Nombre à transformer en binaire", "binary");
+            if (!empty($_POST)) {
+                $bin = new binary();
+                $bin->binaryConverter($_POST["binary"]);
+            }
+
+            $form2->getInputSubmit("Valider");
+
+            ?>
+        </form>
+        <h3>US 10</h3>
+        <form method="POST">
+            <?php
+            /**
+             * Vérifie le format de l'email et de la date
+             */
+            /*US10*/
+            ini_set("display_errors", 1);
+            $form->getInputText("Email", "email");
+            $form->getInputText("Date de naissance", "birth");
+            $form->getInputSubmit("Valid");
+            ?>
+            <?php
+            ini_set('display_errors', 1);
+            if (!empty($_POST["email"])) {
+                if (preg_match("/[aA0-zZ9]{3}\@[aA0-zZ9]{1,}\.[aA-zZ]/", $_POST["email"])) {
+                    echo "Email valide";
+                } else {
+                    echo "Email invalide";
                 }
-                ?>
-            </form>
+            }
+            if (!empty($_POST["birth"])) {
+                if (preg_match("/\d\d\/\d\d\/\d\d/", $_POST["birth"])) {
+                    echo "Date valide";
+                } else {
+                    echo "Date invalide";
+                }
+            }
+            ?>
+        </form>
+        <h3>US 11</h3>
+        <form method="post">
+            <?php
+            ini_set('display_errors', 1);
+            $form->getInputText("nameToSort", "nameToSort");
+            $form->getInputSubmit("submit");
+            $sort = new sort();
+            if ($_POST != null) {
+                $arrayName = explode(",", $_POST["nameToSort"]);
+                $sort->sortName($arrayName);
+            }
+            ?>
         </form>
     </div>
-
-    <form method="POST" action="#">
-        <?php
-        $form = new autoform();
-        $date = new date();
-        $form->getInputText("Seconde", "second");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)) {
-            $date->countSecond($_POST["second"]);
-        }
-        ?>
-    </form>
-    <form method="POST" action="#">
-        <?php
-        ini_set('display_errors', 1);
-        $number = new RomanNumber();
-        $form->getInputText("Nombre", "roman");
-        $form->getInputSubmit("Valider");
-        ?>
-        <?php
-        if (!empty($_POST)) {
-            $number->translateRomanNumber($_POST["roman"]);
-        }
-        ?>
-    </form>
 </div>
 
 
