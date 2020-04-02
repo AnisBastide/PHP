@@ -1,5 +1,7 @@
 <?php
-class request{
+
+class request
+{
 
     private $_user;
     private $_pwd;
@@ -33,15 +35,16 @@ class request{
      * une connexion avec la base de données
      * via l'objet PDO en utilisant les variables de classes
      */
-    private function connectDB(){
+    private function connectDB()
+    {
         try {
-            if($this->_bdd===null){
-                $dsn = $this->_dbType.':dbname='.$this->_dbName.';host='.$this->_dbAdress;
+            if ($this->_bdd === null) {
+                $dsn = $this->_dbType . ':dbname=' . $this->_dbName . ';host=' . $this->_dbAdress;
                 $this->_bdd = new PDO($dsn, $this->_user, $this->_pwd);
             }
 
         } catch (PDOException $e) {
-            echo'Connexion échouée : ' . $e->getMessage();
+            echo 'Connexion échouée : ' . $e->getMessage();
             die();
         }
 
@@ -53,33 +56,56 @@ class request{
      * Permet de réaliser une requête Select
      * et d'afficher chaque enregistrement à l'utilisateur
      */
-    public function getAllRows($table, $columns){
-        $req = "SELECT ".$columns." FROM ".$table;
+    public function getAllRows($table, $columns)
+    {
+        $req = "SELECT " . $columns . " FROM " . $table;
         $tab = $this->_bdd->query($req);
         foreach ($tab as $row) {
-            print_r($row['name'] . " " . $row['specie'] . " ". $row['life']);
+            print_r($row['name'] . " " . $row['specie'] . " " . $row['life']);
             echo "</br>";
         }
     }
 
-    public function Insert($table,$list){
-        $count=0;
+    public function Insert($table, $list)
+    {
+        $count = 0;
         $value = '';
-        foreach($list as $element){
-            $value = $value.$element;
-            if($count<count($list)-1){
-                $value = $value.",";
+        foreach ($list as $element) {
+            $value = $value . $element;
+            if ($count < count($list) - 1) {
+                $value = $value . ",";
             }
             $count++;
         }
-        $sql = "INSERT INTO ".$table." VALUES ( ".$value." )";
+        $sql = "INSERT INTO " . $table . " VALUES ( " . $value . " )";
         $tab = $this->_bdd->query($sql);
     }
+
+    public function getWhere($table, $condition)
+    {
+        $list=array();
+        $req = "SELECT *  FROM" . $table . "WHERE " . $condition;
+        $tab = $this->_bdd->query($req);
+            array_push($list, $tab[0]['lastname']);
+            array_push($list, $tab[0]['firstname']);
+            array_push($list, $tab[0]['date']);
+            array_push($list, $tab[0]['gender']);
+            array_push($list, $tab[0]['mail']);
+            array_push($list, $tab[0]['adress']);
+
+        return $list;
+    }
+
+    public function getColumns($columns, $table)
+    {
+        $list = array();
+        $req = " SELECT " . $columns . " FROM " . $table;
+        $tab = $this->_bdd->query($req);
+        foreach ($tab as $row) {
+            array_push($list, $row['firstname']);
+        }
+        return $list;
+    }
 }
-
-
-
-
-
 
 ?>
