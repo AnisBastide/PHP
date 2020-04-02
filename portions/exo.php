@@ -17,6 +17,7 @@
         require "../factorial(US7).php";
         require "../smallestNumber(US5).php";
         require "../primeNumber(US3).php";
+        require "../sort(US11).php";
         $form = new autoform();
         $date = new date();
         $form->getInputText("Seconde", "second");
@@ -102,6 +103,18 @@
                 $primeNumber->generatePrimeNumbers($_POST["primeNumber"]);
             }
             ?>
+            <form method="post">
+            <?php
+            ini_set('display_errors', 1);
+            $form->getInputText("nameToSort", "nameToSort");
+            $form->getInputSubmit("submit");
+            $sort=new sort();
+            $arrayName=explode(",",$_POST["nameToSort"]);
+            if ($_POST != null) {
+                $sort->sortName($arrayName);
+            }
+            ?>
+            </form>
         </form>
 	</div>
 

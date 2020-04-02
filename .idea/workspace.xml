@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07780d9c-1fcc-467a-8700-a7a24c6c240e" name="Default Changelist" comment="Merge branch 'pierre' of https://github.com/AnisBastide/PHP into UserStory5&#10;&#10;# Conflicts:&#10;#&#9;index.php&#10;#&#9;portions/algo.php&#10;#&#9;portions/bdd.php&#10;#&#9;portions/exo.php&#10;#&#9;portions/footer.php&#10;#&#9;portions/header.php&#10;#&#9;portions/laposte.php&#10;#&#9;request.php">
-      <change afterPath="$PROJECT_DIR$/binary(US9).php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/factorial(US7).php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sort(US11).php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/US3.php" beforeDir="false" afterPath="$PROJECT_DIR$/primeNumber(US3).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/US4.php" beforeDir="false" afterPath="$PROJECT_DIR$/date(US4).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/US6.php" beforeDir="false" afterPath="$PROJECT_DIR$/romanNumber(US6).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utility.php" beforeDir="false" afterPath="$PROJECT_DIR$/smallestNumber(US5).php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autoform" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portions/exo.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/exo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portions/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/portions/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portions/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/portions/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/request.php" beforeDir="false" afterPath="$PROJECT_DIR$/request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,10 +62,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="432" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585742909843">
+    <state x="432" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585828500268">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="432" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1585742909843" />
+    <state x="432" y="260" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1585828500268" />
     <state x="153" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585814911059">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -89,5 +78,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.0.1440.900@0.0.1440.900" timestamp="1585731598546" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1585830024167">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1585830024167" />
   </component>
 </project>
