@@ -12,13 +12,12 @@
 		<section>
 			<article>
 				<h1>
-					Nombres de stories effectuées : 10 / 15
+					Nombres de stories effectuées : 14 / 16
 				</h1>
 				<div id="stories">
 					<div>
 						<h2>Stories à faire</h2>
 						<ul>
-							<li>US11</li>
 							<li>US14</li>
 							<li>US15</li>
 						</ul>
@@ -36,7 +35,8 @@
                             <li>US8</li>
 							<li>US9</li>
                             <li>US10</li>
-							<li>US12</li>
+                            <li>US11</li>
+                            <li>US12</li>
                             <li>US13</li>
 						</ul>
 					</div>
