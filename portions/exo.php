@@ -17,6 +17,7 @@
         require "../factorial(US7).php";
         require "../smallestNumber(US5).php";
         require "../primeNumber(US3).php";
+        require "../hexadecimal(US8).php";
         $form = new autoform();
         $date = new date();
         $form->getInputText("Seconde", "second");
@@ -102,6 +103,15 @@
                 $primeNumber->generatePrimeNumbers($_POST["primeNumber"]);
             }
             ?>
+        </form>
+        <form method="post">
+        <?php
+        $form->getInputText("hexaNumber","hexaNumber");
+        $form->getInputSubmit("valider");
+        $hexa=new hexadecimal();
+        $hexa->translateToHexa($_POST["hexaNumber"]);
+
+        ?>
         </form>
 	</div>
 
