@@ -18,11 +18,7 @@
 					<div>
 						<h2>Stories à faire</h2>
 						<ul>
-							
-							<li>US10</li>
 							<li>US11</li>
-							
-							<li>US13</li>
 							<li>US14</li>
 							<li>US15</li>
 						</ul>
@@ -37,9 +33,11 @@
 							<li>US5</li>
 							<li>US6</li>
 							<li>US7</li>
-							<li>US8</li>
+                            <li>US8</li>
 							<li>US9</li>
+                            <li>US10</li>
 							<li>US12</li>
+                            <li>US13</li>
 						</ul>
 					</div>
 				</div>
