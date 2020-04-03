@@ -187,6 +187,13 @@ class request
         }
     }
 
+    /**
+     * update a value in a chosen column in a chosen table
+     * @param $table the table where you want to modify a value
+     * @param $column he column to modify
+     * @param $valeur the new value
+     * @param $condition the condition to get the right user
+     */
     public function update($table, $column, $valeur, $condition)
     {
         $req = "UPDATE " . $table . " SET " . $column . "='" . $valeur . "' WHERE " . $condition ."";
