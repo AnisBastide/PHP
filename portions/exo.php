@@ -35,11 +35,11 @@ require "../hexadecimal(US8).php";
     <form method="POST">
         <?php
         $form = new autoform();
-        $form->getInputText("primeNumber", "primeNumber");
+        $form->getInputText("Trouver les nombres premiers avant", "primeNumber");
         $form->getInputSubmit("submit");
         ini_set('display_errors', 1);
         $primeNumber = new primeNumber();
-        if ($_POST != null) {
+        if (!empty($_POST["primeNumber"])) {
             $primeNumber->generatePrimeNumbers($_POST["primeNumber"]);
         }
         ?>
@@ -52,12 +52,13 @@ require "../hexadecimal(US8).php";
         $form->getInputSubmit("Valider");
         ?>
         <?php
-        if (!empty($_POST)) {
+        if (!empty($_POST["second"])) {
             $date->countSecond($_POST["second"]);
         }
         ?>
     </form>
     <h3>US 5</h3>
+    <p>Trouver le plus petit nombre</p>
     <form method="post">
         <?php
 
@@ -66,13 +67,17 @@ require "../hexadecimal(US8).php";
         //                //$length, $life, $damage, $name, $gender, $nbrArms, $sizeArms
         //                $toto = new tyrex("", $_POST["life"], "", $_POST["name"], $_POST["gender"], "", "");
         //            }
-        $form->getInputText("firstNumber", "firstNumber");
-        $form->getInputText("secondNumber", "secondNumber");
-        $form->getInputText("thirdNumber", "thirdNumber");
+        $form->getInputText("Nombre 1", "firstNumber");
+        $form->getInputText("Nombre 2", "secondNumber");
+        $form->getInputText("Nombre 3", "thirdNumber");
         $form->getInputSubmit("valider");
         $smallestNumber = new smallestNumber();
-        if (!empty($_POST)) {
-            $smallestNumber->getSmallestNumber($_POST["firstNumber"], $_POST["secondNumber"], $_POST["thirdNumber"]);
+        if (!empty($_POST["firstNumber"])) {
+            if (!empty($_POST["secondNumber"])) {
+                if (!empty($_POST["firstNumber"])) {
+                    $smallestNumber->getSmallestNumber($_POST["firstNumber"], $_POST["secondNumber"], $_POST["thirdNumber"]);
+                }
+            }
         }
         ?>
     </form>
@@ -81,11 +86,11 @@ require "../hexadecimal(US8).php";
         <?php
         ini_set('display_errors', 1);
         $number = new RomanNumber();
-        $form->getInputText("Nombre", "roman");
+        $form->getInputText("Nombre à transformer en chiffre romain", "roman");
         $form->getInputSubmit("Valider");
         ?>
         <?php
-        if (!empty($_POST)) {
+        if (!empty($_POST["roman"])) {
             $number->translateRomanNumber($_POST["roman"]);
         }
         ?>
@@ -95,23 +100,22 @@ require "../hexadecimal(US8).php";
         <?php
         $form = new autoform;
 
-        $form->getInputText("Nombre à calculer", "number");
-        if (!empty($_POST)) {
+        $form->getInputText("Factorielle à calculer", "number");
+        $form->getInputSubmit("Valider");
+
+        if (!empty($_POST["number"])) {
             $fac = new factorial;
             $fac->factor($_POST["number"]);
         }
-
-        $form->getInputSubmit("Valider");
-
         ?>
     </form>
     <h3>US 8</h3>
     <form method="POST">
         <?php
         $hexa = new hexadecimal();
-        $form->getInputText("hexaNumber","hexaNumber");
+        $form->getInputText("Nombre à convertir en Hexadécimale","hexaNumber");
         $form->getInputSubmit("valider");
-        if (!empty($_POST)){
+        if (!empty($_POST["hexaNumber"])){
             $hexa->translateToHexa($_POST["hexaNumber"]);
         }
         ?>
@@ -124,7 +128,7 @@ require "../hexadecimal(US8).php";
         $form2->getInputText("Nombre à transformer en binaire", "binary");
         $form2->getInputSubmit("Valider");
 
-        if (!empty($_POST)) {
+        if (!empty($_POST["binary"])) {
             $bin = new binary();
             $bin->binaryConverter($_POST["binary"]);
         }
@@ -166,10 +170,10 @@ require "../hexadecimal(US8).php";
     <form method="post">
         <?php
         ini_set('display_errors', 1);
-        $form->getInputText("nameToSort", "nameToSort");
+        $form->getInputText("Noms à trier", "nameToSort");
         $form->getInputSubmit("submit");
         $sort = new sort();
-        if ($_POST != null) {
+        if (!empty($_POST["nameToSort"])) {
             $arrayName = explode(",", $_POST["nameToSort"]);
             $sort->sortName($arrayName);
         }
